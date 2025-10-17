@@ -19,20 +19,23 @@ const Nav = () => (
   </header>
 )
 
-/* HERO gebruikt een <img src="/hero.jpg"> uit de /public map. */
+/**
+ * HERO — toont hero.jpg uit /public.
+ * Focuspunt iets omhoog (object-[center_40%]) zodat minder ingezoomd.
+ */
 const Hero = () => (
   <section className="relative bg-black text-white">
     <div className="h-[78vh] min-h-[520px] relative overflow-hidden">
-      {/* Foto */}
+      {/* FOTO */}
       <img
         src="/hero.jpg"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        alt="MYTABLE hero"
+        className="absolute inset-0 w-full h-full object-cover object-[center_40%]"
       />
       {/* Overlay voor leesbaarheid */}
       <div className="absolute inset-0 bg-black/45" />
 
-      {/* Tekst en CTA */}
+      {/* TEKST */}
       <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
         <div className="flex gap-3">
@@ -73,8 +76,7 @@ const Over = () => (
   </section>
 )
 
-/* FAQ/Aanbod verwijderd */
-
+/* Alleen Contact en Footer nog actief */
 const Contact = () => (
   <section id="contact" className="py-20 border-t border-neutral-800 bg-black text-white">
     <div className="container-narrow">
