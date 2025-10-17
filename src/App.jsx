@@ -5,7 +5,6 @@ const Nav = () => (
     <nav className="container-narrow flex items-center justify-between h-16">
       <a href="#" className="font-display text-2xl tracking-wide">
         <span className="font-semibold">MY</span><span>TABLE</span>
-        {/* TODO: later: handtekeningen naast M en Y als SVG */}
       </a>
       <ul className="flex items-center gap-6 text-sm">
         <li><a href="#over" className="hover:opacity-70">Over ons</a></li>
@@ -21,17 +20,22 @@ const Nav = () => (
 )
 
 /**
- * HERO — volle breedte foto (plaats jouw foto in /public/hero.jpg).
- * Tekst op de foto: “Zorgeloos genieten?” + CTA “Vertel ons je idee”.
+ * HERO — gebruikt /public/hero.jpg (jouw foto).
+ * Full-bleed, landscape look via object-cover. Overlay zorgt dat tekst leesbaar blijft.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
     <div className="h-[78vh] min-h-[520px] grid">
       {/* ACHTERGRONDFOTO */}
       <div className="absolute inset-0">
-        {/* Zet jouw foto als /public/hero.jpg. Als je nog geen foto hebt blijft het zwart. */}
-        <div className="h-full w-full bg-black bg-[url('/hero.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div
+          className="
+            h-full w-full
+            bg-[url('/hero.jpg')] bg-cover bg-center
+            "
+        />
+        {/* Extra dim voor tekstcontrast */}
+        <div className="absolute inset-0 bg-black/45" />
       </div>
 
       {/* TEKST + CTA */}
@@ -75,7 +79,7 @@ const Over = () => (
   </section>
 )
 
-/* KAARTEN/FAQ ZIJN VOLLEDIG VERWIJDERD VOLGENS JOUW OPDRACHT */
+/* FAQ en Aanbod volledig verwijderd (zoals gevraagd) */
 
 const Contact = () => (
   <section id="contact" className="py-20 border-t border-neutral-800 bg-black text-white">
