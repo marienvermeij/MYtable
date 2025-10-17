@@ -3,8 +3,9 @@ import React from 'react'
 const Nav = () => (
   <header className="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-neutral-800 text-white">
     <nav className="container-narrow flex items-center justify-between h-16">
+      {/* LOGO LINKS */}
       <a href="#" className="font-display text-2xl tracking-wide">
-        <span className="font-semibold">MY</span><span>TABLE</span>
+        <span className="font-semibold">M.Y.</span><span>TABLE</span>
       </a>
       <ul className="flex items-center gap-6 text-sm">
         <li><a href="#over" className="hover:opacity-70">Over ons</a></li>
@@ -21,8 +22,7 @@ const Nav = () => (
 
 /**
  * HERO — hero.jpg uit /public.
- * Middenweg: full-width (object-cover) + lagere hoogte (62–66vh)
- * en focus wat hoger (object-[center_33%]) voor minder “zoomgevoel”.
+ * Middenweg: full-width (object-cover) + lagere hoogte + logo komt hier.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
@@ -33,8 +33,12 @@ const Hero = () => (
         alt="MYTABLE hero"
         className="absolute inset-0 w-full h-full object-cover object-[center_33%]"
       />
-      {/* Overlay voor leesbaarheid */}
       <div className="absolute inset-0 bg-black/45" />
+
+      {/* LOGO — dit vervang ik straks door jouw echte logo */}
+      <div className="absolute top-12 left-1/2 -translate-x-1/2">
+        <h1 className="text-3xl md:text-4xl font-display tracking-widest">MYTABLE</h1>
+      </div>
 
       {/* TEKST */}
       <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
@@ -59,19 +63,11 @@ const Over = () => (
         <span className="text-6xl">🍷</span>
       </div>
       <div className="space-y-6">
-        <h2 className="font-display text-3xl">Wij zijn Marien &amp; Yannick</h2>
-        <p className="text-neutral-300 leading-relaxed">
-          We koken al jaren in verschillende keukens en brengen die ervaring naar jouw tafel.
-          Met seizoensproducten, aandacht voor detail en een warme, persoonlijke service.
+        <h2 className="font-display text-3xl">Marien Vermeij &amp; Yannick Wilthof</h2>
+        <p className="text-neutral-300 leading-relaxed max-w-prose">
+          Marien en Yannick werken al vier jaar in diverse restaurants en bundelen nu hun ervaring
+          om bij jou thuis een zorgeloze, onvergetelijke avond te bezorgen.
         </p>
-        <p className="text-neutral-300 leading-relaxed">
-          Onze missie: jouw idee vertalen naar een menu en beleving die klopt. Intiem, stijlvol en smaakvol.
-        </p>
-        <div className="flex gap-3">
-          <a href="#contact" className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-white text-white hover:bg-white hover:text-black transition">
-            Plan een gesprek
-          </a>
-        </div>
       </div>
     </div>
   </section>
