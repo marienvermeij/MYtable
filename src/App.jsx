@@ -20,12 +20,12 @@ const Nav = () => (
 )
 
 /**
- * HERO — breedbeeld, geen cropping (object-contain look & feel)
- * Logo: wit gemaakt via invert + blend, zodat een witte achtergrond 'verdwijnt'.
+ * HERO — hero.jpg zonder zoom (object-contain)
+ * Langwerpig beeld, zwarte achtergrondranden.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[55vh] md:h-[60vh] min-h-[380px] relative flex items-center justify-center overflow-hidden bg-black">
+    <div className="h-[48vh] md:h-[52vh] min-h-[320px] relative flex items-center justify-center overflow-hidden bg-black">
       {/* FOTO */}
       <img
         src="/hero.jpg"
@@ -34,24 +34,11 @@ const Hero = () => (
         style={{ objectPosition: 'center center' }}
       />
 
-      {/* Overlay voor leesbaarheid */}
+      {/* Donkere overlay voor contrast */}
       <div className="absolute inset-0 bg-black/40" />
 
-      {/* LOGO centraal bovenaan */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 animate-fadeIn pointer-events-none">
-        <img
-          src="/logo.png"
-          alt="MYTABLE logo"
-          className={`
-            h-20 md:h-28 object-contain
-            invert mix-blend-screen
-            opacity-95
-          `}
-        />
-      </div>
-
-      {/* TEKST + CTA */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-center flex flex-col items-center gap-5">
+      {/* TEKST */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center flex flex-col items-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
         <a
           href="#contact"
@@ -63,15 +50,6 @@ const Hero = () => (
     </div>
   </section>
 )
-
-/* Fade-in animatie voor logo */
-const styles = `
-@keyframes fadeIn {
-  from { opacity: 0; transform: translate(-50%, -10px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
-}
-.animate-fadeIn { animation: fadeIn 1.1s ease-out forwards; }
-`
 
 const Over = () => (
   <section id="over" className="py-20 border-t border-neutral-800 bg-black text-white">
@@ -147,15 +125,12 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <>
-      <style>{styles}</style>
-      <div id="top" className="font-body bg-black text-white">
-        <Nav />
-        <Hero />
-        <Over />
-        <Contact />
-        <Footer />
-      </div>
-    </>
+    <div id="top" className="font-body bg-black text-white">
+      <Nav />
+      <Hero />
+      <Over />
+      <Contact />
+      <Footer />
+    </div>
   )
 }
