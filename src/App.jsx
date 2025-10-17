@@ -20,24 +20,23 @@ const Nav = () => (
 )
 
 /**
- * HERO — toont hero.jpg uit /public.
- * Nu met object-contain (geen cropping, minder ingezoomd).
+ * HERO — hero.jpg uit /public.
+ * Full width, iets hoger focuspunt zodat minder ingezoomd op het midden.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[78vh] min-h-[520px] relative overflow-hidden flex items-center justify-center bg-black">
+    <div className="h-[78vh] min-h-[520px] relative overflow-hidden">
       {/* FOTO */}
       <img
         src="/hero.jpg"
         alt="MYTABLE hero"
-        className="max-h-full max-w-full object-contain"
-        style={{ objectPosition: 'center center' }}
+        className="absolute inset-0 w-full h-full object-cover object-[center_25%]"
       />
-      {/* Overlay voor subtiel contrast */}
-      <div className="absolute inset-0 bg-black/35" />
+      {/* Overlay voor leesbaarheid */}
+      <div className="absolute inset-0 bg-black/45" />
 
       {/* TEKST */}
-      <div className="absolute container-narrow flex flex-col items-start justify-center gap-5">
+      <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
         <div className="flex gap-3">
           <a
@@ -90,6 +89,7 @@ const Contact = () => (
             <li><strong>Instagram:</strong> @mytable</li>
           </ul>
         </div>
+        {/* Formulier */}
         <form name="contact" method="POST" data-netlify="true" className="space-y-4">
           <input type="hidden" name="form-name" value="contact" />
           <label className="block">
