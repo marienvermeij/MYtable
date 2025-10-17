@@ -21,22 +21,23 @@ const Nav = () => (
 
 /**
  * HERO — toont hero.jpg uit /public.
- * Focuspunt iets omhoog (object-[center_40%]) zodat minder ingezoomd.
+ * Nu met object-contain (geen cropping, minder ingezoomd).
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[78vh] min-h-[520px] relative overflow-hidden">
+    <div className="h-[78vh] min-h-[520px] relative overflow-hidden flex items-center justify-center bg-black">
       {/* FOTO */}
       <img
         src="/hero.jpg"
         alt="MYTABLE hero"
-        className="absolute inset-0 w-full h-full object-cover object-[center_40%]"
+        className="max-h-full max-w-full object-contain"
+        style={{ objectPosition: 'center center' }}
       />
-      {/* Overlay voor leesbaarheid */}
-      <div className="absolute inset-0 bg-black/45" />
+      {/* Overlay voor subtiel contrast */}
+      <div className="absolute inset-0 bg-black/35" />
 
       {/* TEKST */}
-      <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
+      <div className="absolute container-narrow flex flex-col items-start justify-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
         <div className="flex gap-3">
           <a
@@ -76,7 +77,6 @@ const Over = () => (
   </section>
 )
 
-/* Alleen Contact en Footer nog actief */
 const Contact = () => (
   <section id="contact" className="py-20 border-t border-neutral-800 bg-black text-white">
     <div className="container-narrow">
@@ -90,7 +90,6 @@ const Contact = () => (
             <li><strong>Instagram:</strong> @mytable</li>
           </ul>
         </div>
-        {/* Netlify Forms */}
         <form name="contact" method="POST" data-netlify="true" className="space-y-4">
           <input type="hidden" name="form-name" value="contact" />
           <label className="block">
