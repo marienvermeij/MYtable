@@ -21,16 +21,17 @@ const Nav = () => (
 
 /**
  * HERO — hero.jpg uit /public.
- * Full width, iets hoger focuspunt zodat minder ingezoomd op het midden.
+ * Middenweg: full-width (object-cover) + lagere hoogte (62–66vh)
+ * en focus wat hoger (object-[center_33%]) voor minder “zoomgevoel”.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[78vh] min-h-[520px] relative overflow-hidden">
+    <div className="h-[62vh] md:h-[66vh] min-h-[440px] relative overflow-hidden">
       {/* FOTO */}
       <img
         src="/hero.jpg"
         alt="MYTABLE hero"
-        className="absolute inset-0 w-full h-full object-cover object-[center_25%]"
+        className="absolute inset-0 w-full h-full object-cover object-[center_33%]"
       />
       {/* Overlay voor leesbaarheid */}
       <div className="absolute inset-0 bg-black/45" />
@@ -89,7 +90,7 @@ const Contact = () => (
             <li><strong>Instagram:</strong> @mytable</li>
           </ul>
         </div>
-        {/* Formulier */}
+        {/* Netlify Forms */}
         <form name="contact" method="POST" data-netlify="true" className="space-y-4">
           <input type="hidden" name="form-name" value="contact" />
           <label className="block">
