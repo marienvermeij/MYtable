@@ -1,0 +1,14 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide bg-neutral-900 text-white hover:bg-black transition;
+}
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-white transition;
+}
+.container-narrow { @apply max-w-5xl mx-auto px-4; }
