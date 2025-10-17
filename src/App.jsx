@@ -3,7 +3,6 @@ import React from 'react'
 const Nav = () => (
   <header className="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-neutral-800 text-white">
     <nav className="container-narrow flex items-center justify-between h-16">
-      {/* LOGO LINKS */}
       <a href="#" className="font-display text-2xl tracking-wide">
         <span className="font-semibold">M.Y.</span><span>TABLE</span>
       </a>
@@ -21,13 +20,13 @@ const Nav = () => (
 )
 
 /**
- * HERO — hero.jpg uit /public.
- * Middenweg: full-width (object-cover) + lagere hoogte + logo komt hier.
+ * HERO — hero.jpg + logo.png
+ * Logo gecentreerd, wit, fade-in animatie
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
     <div className="h-[62vh] md:h-[66vh] min-h-[440px] relative overflow-hidden">
-      {/* FOTO */}
+      {/* Achtergrondfoto */}
       <img
         src="/hero.jpg"
         alt="MYTABLE hero"
@@ -35,12 +34,16 @@ const Hero = () => (
       />
       <div className="absolute inset-0 bg-black/45" />
 
-      {/* LOGO — dit vervang ik straks door jouw echte logo */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2">
-        <h1 className="text-3xl md:text-4xl font-display tracking-widest">MYTABLE</h1>
+      {/* Logo middenboven */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 animate-fadeIn">
+        <img
+          src="/logo.png"
+          alt="MYTABLE logo"
+          className="h-20 md:h-28 object-contain brightness-0 invert"
+        />
       </div>
 
-      {/* TEKST */}
+      {/* Tekst */}
       <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
         <div className="flex gap-3">
@@ -55,6 +58,17 @@ const Hero = () => (
     </div>
   </section>
 )
+
+/* Fade-in animatie */
+const styles = `
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1.4s ease-out forwards;
+}
+`
 
 const Over = () => (
   <section id="over" className="py-20 border-t border-neutral-800 bg-black text-white">
@@ -86,7 +100,6 @@ const Contact = () => (
             <li><strong>Instagram:</strong> @mytable</li>
           </ul>
         </div>
-        {/* Netlify Forms */}
         <form name="contact" method="POST" data-netlify="true" className="space-y-4">
           <input type="hidden" name="form-name" value="contact" />
           <label className="block">
@@ -131,12 +144,15 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <div id="top" className="font-body bg-black text-white">
-      <Nav />
-      <Hero />
-      <Over />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <style>{styles}</style>
+      <div id="top" className="font-body bg-black text-white">
+        <Nav />
+        <Hero />
+        <Over />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   )
 }
