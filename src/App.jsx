@@ -20,54 +20,57 @@ const Nav = () => (
 )
 
 /**
- * HERO — hero.jpg + logo.png
- * Logo gecentreerd, wit, fade-in animatie
+ * HERO — breedbeeld, geen cropping (object-contain look & feel)
+ * Logo: wit gemaakt via invert + blend, zodat een witte achtergrond 'verdwijnt'.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[62vh] md:h-[66vh] min-h-[440px] relative overflow-hidden">
-      {/* Achtergrondfoto */}
+    <div className="h-[55vh] md:h-[60vh] min-h-[380px] relative flex items-center justify-center overflow-hidden bg-black">
+      {/* FOTO */}
       <img
         src="/hero.jpg"
         alt="MYTABLE hero"
-        className="absolute inset-0 w-full h-full object-cover object-[center_33%]"
+        className="max-w-full max-h-full object-contain mx-auto"
+        style={{ objectPosition: 'center center' }}
       />
-      <div className="absolute inset-0 bg-black/45" />
 
-      {/* Logo middenboven */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 animate-fadeIn">
+      {/* Overlay voor leesbaarheid */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* LOGO centraal bovenaan */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 animate-fadeIn pointer-events-none">
         <img
           src="/logo.png"
           alt="MYTABLE logo"
-          className="h-20 md:h-28 object-contain brightness-0 invert"
+          className={`
+            h-20 md:h-28 object-contain
+            invert mix-blend-screen
+            opacity-95
+          `}
         />
       </div>
 
-      {/* Tekst */}
-      <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
+      {/* TEKST + CTA */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-center flex flex-col items-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
-        <div className="flex gap-3">
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-white text-white hover:bg-white hover:text-black transition"
-          >
-            Vertel ons je idee
-          </a>
-        </div>
+        <a
+          href="#contact"
+          className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-white text-white hover:bg-white hover:text-black transition"
+        >
+          Vertel ons je idee
+        </a>
       </div>
     </div>
   </section>
 )
 
-/* Fade-in animatie */
+/* Fade-in animatie voor logo */
 const styles = `
 @keyframes fadeIn {
   from { opacity: 0; transform: translate(-50%, -10px); }
   to { opacity: 1; transform: translate(-50%, 0); }
 }
-.animate-fadeIn {
-  animation: fadeIn 1.4s ease-out forwards;
-}
+.animate-fadeIn { animation: fadeIn 1.1s ease-out forwards; }
 `
 
 const Over = () => (
