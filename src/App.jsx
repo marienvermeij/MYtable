@@ -19,27 +19,21 @@ const Nav = () => (
   </header>
 )
 
-/**
- * HERO — gebruikt /public/hero.jpg (jouw foto).
- * Full-bleed, landscape look via object-cover. Overlay zorgt dat tekst leesbaar blijft.
- */
+/* HERO gebruikt een <img src="/hero.jpg"> uit de /public map. */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[78vh] min-h-[520px] grid">
-      {/* ACHTERGRONDFOTO */}
-      <div className="absolute inset-0">
-        <div
-          className="
-            h-full w-full
-            bg-[url('/hero.jpg')] bg-cover bg-center
-            "
-        />
-        {/* Extra dim voor tekstcontrast */}
-        <div className="absolute inset-0 bg-black/45" />
-      </div>
+    <div className="h-[78vh] min-h-[520px] relative overflow-hidden">
+      {/* Foto */}
+      <img
+        src="/hero.jpg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Overlay voor leesbaarheid */}
+      <div className="absolute inset-0 bg-black/45" />
 
-      {/* TEKST + CTA */}
-      <div className="relative container-narrow flex flex-col gap-5 justify-center">
+      {/* Tekst en CTA */}
+      <div className="relative container-narrow h-full flex flex-col justify-center gap-5">
         <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
         <div className="flex gap-3">
           <a
@@ -79,7 +73,7 @@ const Over = () => (
   </section>
 )
 
-/* FAQ en Aanbod volledig verwijderd (zoals gevraagd) */
+/* FAQ/Aanbod verwijderd */
 
 const Contact = () => (
   <section id="contact" className="py-20 border-t border-neutral-800 bg-black text-white">
