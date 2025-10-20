@@ -1,71 +1,32 @@
 import React from 'react'
 
-// ======= Bestandsnamen (GEEN slash nodig) =======
-// Pas deze aan als jouw bestanden anders heten (houd ze in /public).
-const HERO_SRC = 'hero.jpg'        // bijv. 'mijnfoto.jpg'
-const LOGO_SRC = 'logo.svg'        // bijv. 'mytable_logo.svg'
+// ---- Bestandsnaam van je foto (GEEN slash nodig) ----
+const HERO_SRC = 'hero.jpg' // zet hier bijv. 'mijntafel.jpg' als je bestand zo heet
 
-const Nav = () => (
-  <header className="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-neutral-800 text-white">
-    <nav className="container-narrow flex items-center justify-between h-16">
-      <a href="#" className="font-display text-2xl tracking-wide">
-        <span className="font-semibold">M.Y.</span><span>TABLE</span>
-      </a>
-      <ul className="flex items-center gap-6 text-sm">
-        <li><a href="#over" className="hover:opacity-70">Over ons</a></li>
-        <li><a href="#contact" className="hover:opacity-70">Contact</a></li>
-        <li>
-          <a href="#contact" className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide bg-white text-black hover:bg-neutral-200 transition">
-            Boek nu
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+// ZWARTE BALK MET LOGO-TEKST (wit)
+const LogoBar = () => (
+  <div className="w-full bg-black text-white">
+    <div className="container-narrow py-4">
+      <h1 className="text-center font-display text-2xl md:text-3xl tracking-widest">
+        MYTABLE
+      </h1>
+    </div>
+  </div>
 )
 
-/**
- * HERO — Cinematisch (21:9), NIET ingezoomd (object-contain),
- * logo bovenaan in het midden.
- * Let op: we verwijzen naar bestanden ZONDER leidende slash.
- */
+// HERO: zwarte balk + foto full-width, geen zoom/crop
 const Hero = () => (
-  <section className="relative bg-black text-white">
-    <div className="relative w-full max-h-[60vh]">
-      {/* 21:9 frame */}
-      <div className="relative w-full aspect-[21/9] bg-black overflow-hidden">
-        {/* Foto — niet croppen */}
-        <img
-          src={HERO_SRC}
-          alt="MYTABLE hero"
-          className="absolute inset-0 w-full h-full object-contain"
-          style={{ objectPosition: 'center center' }}
-        />
-        {/* Overlay voor contrast */}
-        <div className="absolute inset-0 bg-black/35" />
+  <section className="bg-black">
+    {/* Zwarte balk met logo-tekst */}
+    <LogoBar />
 
-        {/* Logo (SVG/PNG) centraal bovenin */}
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none">
-          <img
-            src={LOGO_SRC}
-            alt="MYTABLE logo"
-            className="h-16 md:h-20 object-contain"
-            // Als jouw logo zwart is en je wilt het wit tonen op de donkere hero:
-            // style={{ filter: 'invert(1)' }}
-          />
-        </div>
-
-        {/* Tekst + CTA onderin */}
-        <div className="absolute inset-x-0 bottom-6 flex flex-col items-center gap-5">
-          <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-white text-white hover:bg-white hover:text-black transition"
-          >
-            Vertel ons je idee
-          </a>
-        </div>
-      </div>
+    {/* Foto: vult van links naar rechts, hoogte schaalt mee (geen zoom) */}
+    <div className="w-full">
+      <img
+        src={HERO_SRC}
+        alt="MYTABLE hero"
+        className="block w-full h-auto"
+      />
     </div>
   </section>
 )
@@ -100,6 +61,7 @@ const Contact = () => (
             <li><strong>Instagram:</strong> @mytable</li>
           </ul>
         </div>
+        {/* Netlify Forms */}
         <form name="contact" method="POST" data-netlify="true" className="space-y-4">
           <input type="hidden" name="form-name" value="contact" />
           <label className="block">
@@ -145,7 +107,6 @@ const Footer = () => (
 export default function App() {
   return (
     <div id="top" className="font-body bg-black text-white">
-      <Nav />
       <Hero />
       <Over />
       <Contact />
