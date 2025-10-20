@@ -1,35 +1,36 @@
 import React from 'react'
 
-// ---- Bestandsnamen (in /public, GEEN slash) ----
+// ===== Bestandsnamen in /public (geen slash) =====
 const HERO_SRC = 'hero.jpg'
-const LOGO_SRC = 'logo.svg' // gebruik 'logo.png' als je een transparante PNG hebt
+const LOGO_SRC = 'logo.svg'
 
-// Zwarte balk boven: MYTABLE links, LOGO gecentreerd
+// ==== Topbar: MYTABLE links, logo gecentreerd (groter) ====
 const TopBar = () => (
   <div className="relative w-full bg-black text-white h-16 md:h-20 flex items-center">
-    {/* Links: MYTABLE */}
+    {/* Links: MYTABLE (oude plek) */}
     <div className="container-narrow">
       <span className="font-display text-xl md:text-2xl tracking-widest">MYTABLE</span>
     </div>
 
-    {/* Midden: LOGO (echt gecentreerd, boven alles) */}
+    {/* Midden: logo (groter) */}
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
       <img
         src={LOGO_SRC}
         alt="MYTABLE logo"
-        className="h-7 md:h-9 object-contain opacity-95"
-        style={{ filter: 'invert(1)' }} // haal weg als je logo al wit is
+        className="h-9 md:h-12 object-contain opacity-95"
+        // Als jouw logo zwart is en je wilt het wit tonen: uncomment
+        // style={{ filter: 'invert(1)' }}
       />
     </div>
   </div>
 )
 
-// Hero: kort, full-width, niet ingezoomd, tekst erop
+// ==== Hero: korter, full-width, NIET ingezoomd, tekst erop ====
 const Hero = () => (
   <section className="bg-black text-white">
     <TopBar />
 
-    {/* Kortere hero (logisch in proportie) */}
+    {/* Korter: ~34–38vh, zodat het in verhouding is met de rest */}
     <div className="relative w-full h-[34vh] md:h-[38vh] min-h-[240px] flex items-center justify-center overflow-hidden bg-black">
       {/* Foto NIET croppen */}
       <img
@@ -39,7 +40,7 @@ const Hero = () => (
         style={{ objectPosition: 'center center' }}
       />
 
-      {/* Overlay voor leesbaarheid van tekst */}
+      {/* Subtiele overlay voor leesbaarheid */}
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Tekst + CTA gecentreerd */}
