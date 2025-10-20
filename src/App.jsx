@@ -1,40 +1,37 @@
 import React from 'react'
 
-// ---- Bestandsnamen (in /public, GEEN slash nodig) ----
+// ---- Bestandsnamen (in /public, GEEN slash) ----
 const HERO_SRC = 'hero.jpg'
-const LOGO_SRC = 'logo.svg' // of 'logo.png' als je PNG gebruikt
+const LOGO_SRC = 'logo.svg' // gebruik 'logo.png' als je een transparante PNG hebt
 
-// ---- Bovenbalk: zwart, MYTABLE links, LOGO gecentreerd ----
+// Zwarte balk boven: MYTABLE links, LOGO gecentreerd
 const TopBar = () => (
   <div className="relative w-full bg-black text-white h-16 md:h-20 flex items-center">
-    {/* Linkerkant: MYTABLE */}
-    <div className="container-narrow w-full">
-      <div className="flex items-center h-16 md:h-20">
-        <span className="font-display text-xl md:text-2xl tracking-widest">MYTABLE</span>
-      </div>
+    {/* Links: MYTABLE */}
+    <div className="container-narrow">
+      <span className="font-display text-xl md:text-2xl tracking-widest">MYTABLE</span>
     </div>
 
-    {/* Gecentreerd logo bovenop (echt midden, onafhankelijk van links/rechts) */}
+    {/* Midden: LOGO (echt gecentreerd, boven alles) */}
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
       <img
         src={LOGO_SRC}
         alt="MYTABLE logo"
-        className="h-7 md:h-9 object-contain"
-        // Als je logo zwart is en je wilt witte letters: uncomment onderstaande regel
-        // style={{ filter: 'invert(1)' }}
+        className="h-7 md:h-9 object-contain opacity-95"
+        style={{ filter: 'invert(1)' }} // haal weg als je logo al wit is
       />
     </div>
   </div>
 )
 
-// ---- Hero: korter, full-width, NIET ingezoomd, tekst erop ----
+// Hero: kort, full-width, niet ingezoomd, tekst erop
 const Hero = () => (
   <section className="bg-black text-white">
     <TopBar />
 
-    {/* Kortere hero: ~36–42vh i.p.v. full-height */}
-    <div className="relative w-full h-[36vh] md:h-[42vh] min-h-[260px] flex items-center justify-center overflow-hidden bg-black">
-      {/* Foto: niet croppen -> object-contain */}
+    {/* Kortere hero (logisch in proportie) */}
+    <div className="relative w-full h-[34vh] md:h-[38vh] min-h-[240px] flex items-center justify-center overflow-hidden bg-black">
+      {/* Foto NIET croppen */}
       <img
         src={HERO_SRC}
         alt="MYTABLE hero"
@@ -42,10 +39,10 @@ const Hero = () => (
         style={{ objectPosition: 'center center' }}
       />
 
-      {/* Subtiele overlay voor leesbaarheid */}
+      {/* Overlay voor leesbaarheid van tekst */}
       <div className="absolute inset-0 bg-black/30" />
 
-      {/* Tekst + CTA gecentreerd op de foto */}
+      {/* Tekst + CTA gecentreerd */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-4">
         <p className="text-base md:text-lg tracking-wide text-neutral-200">Zorgeloos genieten?</p>
         <a
