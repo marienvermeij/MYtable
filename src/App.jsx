@@ -1,47 +1,44 @@
 import React from 'react'
 
-// === Bestanden in /public ===
-const HERO_SRC = 'hero.jpg'
-const LOGO_SRC = 'logo.svg'
+// === Gebruik absolute paden uit /public (werkt altijd op Netlify/Vite) ===
+const HERO_SRC = '/hero.jpg'
+const LOGO_SRC = '/logo.svg'
 
-// === Topbar: MYTABLE links, logo gecentreerd, wit ===
+// === Topbar: MYTABLE links, logo gecentreerd (wit, zelfde grootte) ===
 const TopBar = () => (
   <div className="relative w-full bg-black text-white h-16 md:h-20 flex items-center">
-    {/* Links: MYTABLE */}
+    {/* Links: MYTABLE (oude plek) */}
     <div className="container-narrow">
       <span className="font-display text-xl md:text-2xl tracking-widest">MYTABLE</span>
     </div>
 
-    {/* Midden: logo wit, even groot als tekst */}
+    {/* Midden: logo wit, visueel even groot als de MYTABLE-tekst */}
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
       <img
         src={LOGO_SRC}
         alt="MYTABLE logo"
-        className="h-6 md:h-8 object-contain opacity-95"
-        style={{ filter: 'invert(1)' }} // zorgt voor witte kleur
+        className="h-7 md:h-8 object-contain opacity-95"
+        style={{ filter: 'invert(1)' }} // forceer witte letters
       />
     </div>
   </div>
 )
 
-// === Hero: langwerpig, in verhouding, niet ingezoomd ===
+// === Hero: korter, full-width, niet ingezoomd, met tekst/CTA ===
 const Hero = () => (
   <section className="bg-black text-white">
     <TopBar />
-
-    <div className="relative w-full h-[36vh] md:h-[40vh] flex items-center justify-center overflow-hidden bg-black">
-      {/* Foto: volledige breedte, niet ingezoomd */}
+    <div className="relative w-full h-[36vh] md:h-[40vh] min-h-[240px] flex items-center justify-center overflow-hidden bg-black">
+      {/* Foto NIET croppen */}
       <img
         src={HERO_SRC}
         alt="MYTABLE hero"
         className="max-w-full max-h-full object-contain"
         style={{ objectPosition: 'center center' }}
       />
-
-      {/* Subtiele overlay voor leesbaarheid */}
+      {/* Subtiele overlay voor contrast */}
       <div className="absolute inset-0 bg-black/30" />
-
-      {/* Tekst en knop */}
+      {/* Tekst + CTA */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-4">
         <p className="text-base md:text-lg tracking-wide text-neutral-200">Zorgeloos genieten?</p>
         <a
