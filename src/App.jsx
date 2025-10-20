@@ -1,5 +1,10 @@
 import React from 'react'
 
+// ======= Bestandsnamen (GEEN slash nodig) =======
+// Pas deze aan als jouw bestanden anders heten (houd ze in /public).
+const HERO_SRC = 'hero.jpg'        // bijv. 'mijnfoto.jpg'
+const LOGO_SRC = 'logo.svg'        // bijv. 'mytable_logo.svg'
+
 const Nav = () => (
   <header className="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-neutral-800 text-white">
     <nav className="container-narrow flex items-center justify-between h-16">
@@ -20,32 +25,46 @@ const Nav = () => (
 )
 
 /**
- * HERO — hero.jpg zonder zoom (object-contain)
- * Langwerpig beeld, zwarte achtergrondranden.
+ * HERO — Cinematisch (21:9), NIET ingezoomd (object-contain),
+ * logo bovenaan in het midden.
+ * Let op: we verwijzen naar bestanden ZONDER leidende slash.
  */
 const Hero = () => (
   <section className="relative bg-black text-white">
-    <div className="h-[48vh] md:h-[52vh] min-h-[320px] relative flex items-center justify-center overflow-hidden bg-black">
-      {/* FOTO */}
-      <img
-        src="/hero.jpg"
-        alt="MYTABLE hero"
-        className="max-w-full max-h-full object-contain mx-auto"
-        style={{ objectPosition: 'center center' }}
-      />
+    <div className="relative w-full max-h-[60vh]">
+      {/* 21:9 frame */}
+      <div className="relative w-full aspect-[21/9] bg-black overflow-hidden">
+        {/* Foto — niet croppen */}
+        <img
+          src={HERO_SRC}
+          alt="MYTABLE hero"
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{ objectPosition: 'center center' }}
+        />
+        {/* Overlay voor contrast */}
+        <div className="absolute inset-0 bg-black/35" />
 
-      {/* Donkere overlay voor contrast */}
-      <div className="absolute inset-0 bg-black/40" />
+        {/* Logo (SVG/PNG) centraal bovenin */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none">
+          <img
+            src={LOGO_SRC}
+            alt="MYTABLE logo"
+            className="h-16 md:h-20 object-contain"
+            // Als jouw logo zwart is en je wilt het wit tonen op de donkere hero:
+            // style={{ filter: 'invert(1)' }}
+          />
+        </div>
 
-      {/* TEKST */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center flex flex-col items-center gap-5">
-        <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
-        <a
-          href="#contact"
-          className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-white text-white hover:bg-white hover:text-black transition"
-        >
-          Vertel ons je idee
-        </a>
+        {/* Tekst + CTA onderin */}
+        <div className="absolute inset-x-0 bottom-6 flex flex-col items-center gap-5">
+          <p className="tracking-wide text-base text-neutral-200">Zorgeloos genieten?</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium tracking-wide border border-white text-white hover:bg-white hover:text-black transition"
+          >
+            Vertel ons je idee
+          </a>
+        </div>
       </div>
     </div>
   </section>
