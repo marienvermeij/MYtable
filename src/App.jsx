@@ -7,11 +7,6 @@ function App() {
       {/* Top bar */}
       <header className="flex justify-between items-center px-8 py-4 bg-black">
         <h1 className="text-2xl font-bold tracking-wide">MYTABLE</h1>
-        <img
-          src="/logo.svg"
-          alt="Logo"
-          className="h-8 invert"
-        />
       </header>
 
       {/* Hero Section */}
@@ -50,7 +45,7 @@ function App() {
         </div>
       </section>
 
-      {/* Yannick & Jij section (onder de 3 foto's) */}
+      {/* Yannick & Jij section */}
       <section className="px-12 py-16 text-center max-w-4xl mx-auto">
         <h3 className="text-2xl font-semibold mb-4">Over Yannick & Mij</h3>
         <p className="text-gray-300 leading-relaxed">
