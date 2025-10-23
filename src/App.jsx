@@ -107,6 +107,7 @@ function App() {
               name="contact"
               method="POST"
               data-netlify="true"
+              action="/bedankt"
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="contact" />
