@@ -5,11 +5,11 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* ===== HEADER ===== */}
-      <header className="relative flex justify-center items-center bg-black py-8">
+      <header className="relative flex justify-center items-center bg-black py-10">
         <img
           src="/mytablelogo.png"
           alt="MYTABLE Logo"
-          className="h-32 md:h-40 object-contain"
+          className="h-64 md:h-72 object-contain"
         />
       </header>
 
