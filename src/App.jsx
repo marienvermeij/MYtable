@@ -4,15 +4,19 @@ import "./App.css";
 function App() {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Top bar */}
-      <header className="flex justify-between items-center px-8 py-4 bg-black">
-        <h1 className="text-2xl font-bold tracking-wide">MYTABLE</h1>
+      {/* Top bar met logo in het midden */}
+      <header className="relative flex justify-center items-center bg-black py-4">
+        <img
+          src="/mytablelogo.png"
+          alt="MYTABLE Logo"
+          className="h-12 md:h-16 object-contain"
+        />
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section met 3 foto's */}
       <section className="relative flex justify-center items-center bg-black overflow-hidden py-12">
         <div className="flex justify-center items-center w-full max-w-7xl px-8 gap-8">
-          {/* Left dish image */}
+          {/* Linker gerecht */}
           <div className="flex-1 flex justify-end">
             <img
               src="/dish1.jpg"
@@ -21,10 +25,10 @@ function App() {
             />
           </div>
 
-          {/* Center main image with overlay text */}
+          {/* Middelste hoofd-foto met overlay tekst */}
           <div className="relative flex-1 flex justify-center">
             <img
-              src="/mainphoto.svg"
+              src="/mytablelogo.png"
               alt="Hoofdfoto"
               className="rounded-2xl shadow-lg object-cover w-full max-w-md"
             />
@@ -34,7 +38,7 @@ function App() {
             </div>
           </div>
 
-          {/* Right dish image */}
+          {/* Rechter gerecht */}
           <div className="flex-1 flex justify-start">
             <img
               src="/dish2.jpg"
@@ -45,12 +49,12 @@ function App() {
         </div>
       </section>
 
-      {/* Yannick & Jij section */}
+      {/* Yannick & Marien sectie */}
       <section className="px-12 py-16 text-center max-w-4xl mx-auto">
         <h3 className="text-2xl font-semibold mb-4">Over Yannick & Mij</h3>
         <p className="text-gray-300 leading-relaxed">
-          Wij creëren unieke dining experiences die elke gast verrassen. 
-          Of het nu gaat om private dining, events of exclusieve proeverijen, 
+          Wij creëren unieke dining experiences die elke gast verrassen.
+          Of het nu gaat om private dining, events of exclusieve proeverijen,
           alles draait om sfeer, smaak en beleving.
         </p>
       </section>
