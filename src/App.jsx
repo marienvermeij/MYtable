@@ -4,16 +4,16 @@ import "./App.css";
 function App() {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Top bar met groter logo */}
-      <header className="relative flex justify-center items-center bg-black py-6">
+      {/* ===== HEADER ===== */}
+      <header className="relative flex justify-center items-center bg-black py-8">
         <img
           src="/mytablelogo.png"
           alt="MYTABLE Logo"
-          className="h-20 md:h-24 object-contain"
+          className="h-32 md:h-40 object-contain"
         />
       </header>
 
-      {/* Hero Section met drie gelijke foto's */}
+      {/* ===== HERO SECTION ===== */}
       <section className="relative bg-black overflow-hidden py-12">
         <div className="flex flex-wrap justify-center items-center w-full max-w-7xl mx-auto px-8 gap-8">
           {/* Linker gerecht */}
@@ -56,7 +56,7 @@ function App() {
         </div>
       </section>
 
-      {/* Over ons */}
+      {/* ===== OVER ONS ===== */}
       <section className="px-12 py-16 text-center max-w-4xl mx-auto">
         <h3 className="text-2xl font-semibold mb-4">Over Yannick & Mij</h3>
         <p className="text-gray-300 leading-relaxed">
@@ -65,8 +65,20 @@ function App() {
           alles draait om sfeer, smaak en beleving.
         </p>
       </section>
-    </div>
-  );
-}
 
-export default App;
+      {/* ===== CONTACT / BOEKING ===== */}
+      <section id="contact" className="py-20 border-t border-neutral-800 bg-black text-white">
+        <div className="container mx-auto max-w-4xl px-6">
+          <div className="grid md:grid-cols-2 gap-10">
+            {/* Contact info */}
+            <div className="space-y-4">
+              <h2 className="font-display text-3xl">Contact</h2>
+              <p className="text-neutral-300">Vertel ons je idee.</p>
+              <ul className="text-sm text-neutral-300 space-y-1">
+                <li>
+                  <strong>E-mail:</strong>{" "}
+                  <a
+                    href="mailto:marienvermeij@gmail.com"
+                    className="underline hover:no-underline"
+                  >
+                    marienvermeij@gmail.com
