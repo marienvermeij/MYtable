@@ -4,18 +4,18 @@ import "./App.css";
 function App() {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Top bar met logo in het midden */}
-      <header className="relative flex justify-center items-center bg-black py-4">
+      {/* Top bar met groter logo */}
+      <header className="relative flex justify-center items-center bg-black py-6">
         <img
           src="/mytablelogo.png"
           alt="MYTABLE Logo"
-          className="h-12 md:h-16 object-contain"
+          className="h-16 md:h-20 object-contain"
         />
       </header>
 
-      {/* Hero Section met 3 foto's */}
-      <section className="relative flex justify-center items-center bg-black overflow-hidden py-12">
-        <div className="flex justify-center items-center w-full max-w-7xl px-8 gap-8">
+      {/* Hero Section */}
+      <section className="relative bg-black overflow-hidden py-12">
+        <div className="flex justify-center items-center w-full max-w-7xl mx-auto px-8 gap-8">
           {/* Linker gerecht */}
           <div className="flex-1 flex justify-end">
             <img
@@ -25,16 +25,23 @@ function App() {
             />
           </div>
 
-          {/* Middelste hoofd-foto met overlay tekst */}
+          {/* Middelste hero-foto met overlay tekst */}
           <div className="relative flex-1 flex justify-center">
             <img
-              src="/mytablelogo.png"
+              src="/hero.jpg"
               alt="Hoofdfoto"
               className="rounded-2xl shadow-lg object-cover w-full max-w-md"
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-40 rounded-2xl">
-              <h2 className="text-3xl font-semibold mb-2">Zorgeloos genieten?</h2>
-              <p className="text-lg">Vertel ons je idee</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-2">
+                Zorgeloos genieten?
+              </h2>
+              <a
+                href="#contact"
+                className="text-lg md:text-xl border border-white px-6 py-2 rounded-lg hover:bg-white hover:text-black transition"
+              >
+                Vertel ons je idee
+              </a>
             </div>
           </div>
 
@@ -49,7 +56,7 @@ function App() {
         </div>
       </section>
 
-      {/* Yannick & Marien sectie */}
+      {/* Over ons */}
       <section className="px-12 py-16 text-center max-w-4xl mx-auto">
         <h3 className="text-2xl font-semibold mb-4">Over Yannick & Mij</h3>
         <p className="text-gray-300 leading-relaxed">
