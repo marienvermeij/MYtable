@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: black;
+  color: white;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
