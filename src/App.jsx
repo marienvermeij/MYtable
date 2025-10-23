@@ -76,9 +76,4 @@ function App() {
               <p className="text-neutral-300">Vertel ons je idee.</p>
               <ul className="text-sm text-neutral-300 space-y-1">
                 <li>
-                  <strong>E-mail:</strong>{" "}
-                  <a
-                    href="mailto:marienvermeij@gmail.com"
-                    className="underline hover:no-underline"
-                  >
-                    marienvermeij@gmail.com
+                  <strong>E-mail:</strong>{"
