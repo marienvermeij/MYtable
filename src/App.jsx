@@ -111,7 +111,7 @@ function App() {
 
             {/* Formspree contact form */}
             <form
-              action="https://formspree.io/f/YOUR_FORM_ID" // 👈 vervang dit met jouw Formspree URL
+              action="https://formspree.io/f/xdkpagnr" // ✅ jouw Formspree-link
               method="POST"
               className="space-y-4"
             >
