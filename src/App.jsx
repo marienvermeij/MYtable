@@ -115,7 +115,7 @@ function App() {
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
-              action="/bedankt"
+              action="/bedankt.html"
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="contact" />
