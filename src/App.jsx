@@ -119,11 +119,6 @@ function App() {
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="contact" />
-              <input
-                type="hidden"
-                name="to"
-                value="marienvermeij@gmail.com"
-              />
               <p className="hidden">
                 <label>
                   Don’t fill this out if you’re human:{" "}
