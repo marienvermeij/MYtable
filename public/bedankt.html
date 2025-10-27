@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bedankt | MYTABLE</title>
+    <link rel="icon" href="/favicon.ico" />
     <style>
       body {
         margin: 0;
@@ -12,48 +13,50 @@
         color: white;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         height: 100vh;
         text-align: center;
       }
-
       h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
+        letter-spacing: 1px;
       }
-
       p {
-        font-size: 1.1rem;
         color: #cccccc;
-        max-width: 600px;
-        line-height: 1.6;
+        max-width: 480px;
+        margin-bottom: 2rem;
       }
-
       a {
-        margin-top: 2rem;
         display: inline-block;
-        padding: 12px 24px;
-        border: 1px solid white;
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        transition: all 0.3s ease;
-      }
-
-      a:hover {
-        background-color: white;
         color: black;
+        background-color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+      a:hover {
+        background-color: #d4d4d4;
+      }
+      footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.8rem;
+        color: #888;
       }
     </style>
   </head>
   <body>
-    <h1>Bedankt voor je verzoek!</h1>
-    <p>
-      We hebben je bericht ontvangen.  
-      Marien of Yannick neemt zo snel mogelijk contact met je op  
-      via het opgegeven e-mailadres of telefoonnummer.
-    </p>
-    <a href="/">Terug naar de homepage</a>
+    <main>
+      <h1>Bedankt voor je aanvraag!</h1>
+      <p>
+        We hebben je verzoek ontvangen. Marien of Yannick neemt zo snel mogelijk contact met je op via mail of telefoon.
+      </p>
+      <a href="/">Terug naar de homepage</a>
+    </main>
+    <footer>© <script>document.write(new Date().getFullYear())</script> MYTABLE — Private Dining</footer>
   </body>
 </html>
