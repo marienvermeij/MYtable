@@ -58,11 +58,15 @@ function App() {
 
       {/* ===== OVER ONS ===== */}
       <section className="px-12 py-16 text-center max-w-4xl mx-auto">
-        <h3 className="text-2xl font-semibold mb-4">Over Yannick & Mij</h3>
+        <h3 className="text-2xl font-semibold mb-4">
+          Over Marien Vermeij &amp; Yannick Wilthof
+        </h3>
         <p className="text-gray-300 leading-relaxed">
-          Wij creëren unieke dining experiences die elke gast verrassen.
-          Of het nu gaat om private dining, events of exclusieve proeverijen,
-          alles draait om sfeer, smaak en beleving.
+          Wij hebben vier jaar lang samengewerkt in diverse restaurants, waar
+          onze liefde voor koken en gastvrijheid is ontstaan. Vooral het
+          intieme, persoonlijke karakter van koken bij mensen thuis vinden wij
+          het allerleukst. We streven ernaar om elke avond uniek te maken:
+          ontspannen, smaakvol en volledig afgestemd op jouw beleving.
         </p>
       </section>
 
@@ -76,7 +80,10 @@ function App() {
             {/* Contact info */}
             <div className="space-y-4">
               <h2 className="font-display text-3xl">Contact</h2>
-              <p className="text-neutral-300">Vertel ons je idee.</p>
+              <p className="text-neutral-300">
+                Vertel ons je idee — wij nemen snel contact met je op via
+                e-mail of telefoon.
+              </p>
               <ul className="text-sm text-neutral-300 space-y-1">
                 <li>
                   <strong>E-mail:</strong>{" "}
@@ -107,10 +114,22 @@ function App() {
               name="contact"
               method="POST"
               data-netlify="true"
+              netlify-honeypot="bot-field"
               action="/bedankt"
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="contact" />
+              <input
+                type="hidden"
+                name="to"
+                value="marienvermeij@gmail.com"
+              />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you’re human:{" "}
+                  <input name="bot-field" />
+                </label>
+              </p>
               <label className="block">
                 <span className="text-sm">Naam</span>
                 <input
