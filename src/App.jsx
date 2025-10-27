@@ -109,22 +109,12 @@ function App() {
               </ul>
             </div>
 
-            {/* Contact form */}
+            {/* Formspree contact form */}
             <form
-              name="contact"
+              action="https://formspree.io/f/YOUR_FORM_ID" // 👈 vervang dit met jouw Formspree URL
               method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              action="/bedankt.html"
               className="space-y-4"
             >
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
-                <label>
-                  Don’t fill this out if you’re human:{" "}
-                  <input name="bot-field" />
-                </label>
-              </p>
               <label className="block">
                 <span className="text-sm">Naam</span>
                 <input
@@ -133,15 +123,17 @@ function App() {
                   className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
                 />
               </label>
+
               <label className="block">
                 <span className="text-sm">E-mail</span>
                 <input
                   required
                   type="email"
-                  name="email"
+                  name="_replyto"
                   className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
                 />
               </label>
+
               <div className="grid grid-cols-2 gap-4">
                 <label className="block">
                   <span className="text-sm">Datum</span>
@@ -161,6 +153,7 @@ function App() {
                   />
                 </label>
               </div>
+
               <label className="block">
                 <span className="text-sm">Wensen / Idee</span>
                 <textarea
@@ -169,6 +162,14 @@ function App() {
                   className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
                 ></textarea>
               </label>
+
+              {/* Redirect na versturen */}
+              <input
+                type="hidden"
+                name="_next"
+                value="https://mytableprivate.netlify.app/bedankt.html"
+              />
+
               <button
                 type="submit"
                 className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium bg-white text-black hover:bg-neutral-200 transition"
