@@ -1,6 +1,33 @@
 import React from "react";
 import "./App.css";
 
+const reviews = [
+  {
+    name: "Sophie",
+    rating: 5,
+    text: "Een fantastische avond. Alles was tot in de puntjes verzorgd en volledig afgestemd op onze wensen.",
+  },
+  {
+    name: "Jasper",
+    rating: 5,
+    text: "Topmenu, ontspannen sfeer en super fijne communicatie. Alsof je een restaurant in huis haalt.",
+  },
+  {
+    name: "Lotte",
+    rating: 4,
+    text: "Heerlijk eten en persoonlijke aandacht. We boekten voor een verjaardag en iedereen was onder de indruk.",
+  },
+];
+
+function renderStars(rating) {
+  return (
+    <span className="text-yellow-400">
+      {"★".repeat(rating)}
+      {"☆".repeat(5 - rating)}
+    </span>
+  );
+}
+
 function App() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -111,7 +138,7 @@ function App() {
 
             {/* Formspree contact form */}
             <form
-              action="https://formspree.io/f/xdkpagnr" // ✅ jouw Formspree-link
+              action="https://formspree.io/f/xdkpagnr"
               method="POST"
               className="space-y-4"
             >
@@ -163,7 +190,6 @@ function App() {
                 ></textarea>
               </label>
 
-              {/* Redirect na versturen */}
               <input
                 type="hidden"
                 name="_next"
@@ -175,6 +201,109 @@ function App() {
                 className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium bg-white text-black hover:bg-neutral-200 transition"
               >
                 Verstuur
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== REVIEWS ===== */}
+      <section
+        id="reviews"
+        className="py-20 border-t border-neutral-800 bg-black text-white"
+      >
+        <div className="container mx-auto max-w-5xl px-6">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-semibold">Reviews</h2>
+            <div className="text-sm text-neutral-300">
+              Gemiddeld{" "}
+              <span className="font-semibold">
+                4.7/5
+              </span>{" "}
+              op basis van{" "}
+              <span className="font-semibold">
+                {reviews.length}
+              </span>{" "}
+              reviews
+            </div>
+          </div>
+
+          {/* balk met reviews */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {reviews.map((review, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5 flex flex-col gap-3"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold">{review.name}</span>
+                  {renderStars(review.rating)}
+                </div>
+                <p className="text-sm text-neutral-300 leading-relaxed">
+                  {review.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* review formulier */}
+          <div className="mt-12 border-t border-neutral-800 pt-8">
+            <h3 className="text-xl font-semibold mb-4">Deel jouw ervaring</h3>
+            <p className="text-sm text-neutral-300 mb-4">
+              Hebben wij bij jou gekookt? Laat een review achter met een
+              beoordeling en korte toelichting.
+            </p>
+            <form
+              action="https://formspree.io/f/YOUR_REVIEW_FORM_ID"
+              method="POST"
+              className="space-y-4 max-w-xl"
+            >
+              <label className="block">
+                <span className="text-sm">Naam</span>
+                <input
+                  required
+                  name="naam"
+                  className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
+                />
+              </label>
+
+              <label className="block">
+                <span className="text-sm">Beoordeling (1–5 sterren)</span>
+                <select
+                  name="rating"
+                  required
+                  className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
+                >
+                  <option value="">Kies een beoordeling</option>
+                  <option value="5">5 - Uitstekend</option>
+                  <option value="4">4 - Erg goed</option>
+                  <option value="3">3 - Prima</option>
+                  <option value="2">2 - Matig</option>
+                  <option value="1">1 - Ontevreden</option>
+                </select>
+              </label>
+
+              <label className="block">
+                <span className="text-sm">Review</span>
+                <textarea
+                  name="review"
+                  rows="4"
+                  className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
+                  placeholder="Hoe heb je de avond ervaren?"
+                ></textarea>
+              </label>
+
+              <input
+                type="hidden"
+                name="_next"
+                value="https://mytableprivate.netlify.app/bedankt.html"
+              />
+
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium bg-white text-black hover:bg-neutral-200 transition"
+              >
+                Verstuur review
               </button>
             </form>
           </div>
