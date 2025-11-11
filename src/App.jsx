@@ -1,23 +1,8 @@
 import React from "react";
 import "./App.css";
 
-const reviews = [
-  {
-    name: "Sophie",
-    rating: 5,
-    text: "Een fantastische avond. Alles was tot in de puntjes verzorgd en volledig afgestemd op onze wensen.",
-  },
-  {
-    name: "Jasper",
-    rating: 5,
-    text: "Topmenu, ontspannen sfeer en super fijne communicatie. Alsof je een restaurant in huis haalt.",
-  },
-  {
-    name: "Lotte",
-    rating: 4,
-    text: "Heerlijk eten en persoonlijke aandacht. We boekten voor een verjaardag en iedereen was onder de indruk.",
-  },
-];
+// Lege array (jij kunt later handmatig reviews toevoegen)
+const reviews = [];
 
 function renderStars(rating) {
   return (
@@ -217,29 +202,43 @@ function App() {
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-semibold">Reviews</h2>
             <div className="text-sm text-neutral-300">
-              Gemiddeld <span className="font-semibold">4.7/5</span> op basis
-              van <span className="font-semibold">{reviews.length}</span>{" "}
+              Gemiddeld{" "}
+              <span className="font-semibold">
+                {reviews.length > 0 ? "4.7/5" : "-"}
+              </span>{" "}
+              op basis van{" "}
+              <span className="font-semibold">
+                {reviews.length}
+              </span>{" "}
               reviews
             </div>
           </div>
 
-          {/* Balk met bestaande reviews (handmatig in de array gezet) */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {reviews.map((review, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5 flex flex-col gap-3"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold">{review.name}</span>
-                  {renderStars(review.rating)}
+          {/* Alleen tonen als er reviews zijn */}
+          {reviews.length > 0 ? (
+            <div className="grid md:grid-cols-3 gap-6">
+              {reviews.map((review, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5 flex flex-col gap-3"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold">
+                      {review.name}
+                    </span>
+                    {renderStars(review.rating)}
+                  </div>
+                  <p className="text-sm text-neutral-300 leading-relaxed">
+                    {review.text}
+                  </p>
                 </div>
-                <p className="text-sm text-neutral-300 leading-relaxed">
-                  {review.text}
-                </p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-neutral-500 text-sm mb-10">
+              Er zijn nog geen reviews geplaatst.
+            </p>
+          )}
 
           {/* Review formulier (Formspree) */}
           <div className="mt-12 border-t border-neutral-800 pt-8">
