@@ -30,7 +30,7 @@ function renderStars(rating) {
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div id="top" className="min-h-screen bg-black text-white">
       {/* ===== HEADER ===== */}
       <header className="relative flex justify-center items-center bg-black py-10">
         <img
@@ -190,6 +190,7 @@ function App() {
                 ></textarea>
               </label>
 
+              {/* Redirect na versturen */}
               <input
                 type="hidden"
                 name="_next"
@@ -216,19 +217,13 @@ function App() {
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-semibold">Reviews</h2>
             <div className="text-sm text-neutral-300">
-              Gemiddeld{" "}
-              <span className="font-semibold">
-                4.7/5
-              </span>{" "}
-              op basis van{" "}
-              <span className="font-semibold">
-                {reviews.length}
-              </span>{" "}
+              Gemiddeld <span className="font-semibold">4.7/5</span> op basis
+              van <span className="font-semibold">{reviews.length}</span>{" "}
               reviews
             </div>
           </div>
 
-          {/* balk met reviews */}
+          {/* Balk met bestaande reviews (handmatig in de array gezet) */}
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.map((review, idx) => (
               <div
@@ -246,7 +241,7 @@ function App() {
             ))}
           </div>
 
-          {/* review formulier */}
+          {/* Review formulier (Formspree) */}
           <div className="mt-12 border-t border-neutral-800 pt-8">
             <h3 className="text-xl font-semibold mb-4">Deel jouw ervaring</h3>
             <p className="text-sm text-neutral-300 mb-4">
@@ -254,7 +249,7 @@ function App() {
               beoordeling en korte toelichting.
             </p>
             <form
-              action="https://formspree.io/f/YOUR_REVIEW_FORM_ID"
+              action="https://formspree.io/f/manayjva"
               method="POST"
               className="space-y-4 max-w-xl"
             >
@@ -293,6 +288,7 @@ function App() {
                 ></textarea>
               </label>
 
+              {/* Zelfde bedankt-pagina na review */}
               <input
                 type="hidden"
                 name="_next"
