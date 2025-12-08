@@ -107,17 +107,17 @@ function App() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <img
-              src="/locatie1.jpg"
+              src="/publiclocatie1.jpg"
               alt="Locatie Leiden tafel setting"
               className="rounded-2xl object-cover w-full h-64"
             />
             <img
-              src="/locatie2.jpg"
+              src="/publiclocatie2.jpg"
               alt="Locatie Leiden overview"
               className="rounded-2xl object-cover w-full h-64"
             />
             <img
-              src="/locatie3.jpg"
+              src="/publiclocatie3.jpg"
               alt="Locatie Leiden diner"
               className="rounded-2xl object-cover w-full h-64"
             />
