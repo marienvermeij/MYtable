@@ -18,8 +18,15 @@ function renderStars(rating) {
   );
 }
 
-
 function App() {
+  const averageRating =
+    reviews.length > 0
+      ? (
+          reviews.reduce((sum, review) => sum + review.rating, 0) /
+          reviews.length
+        ).toFixed(1)
+      : null;
+
   return (
     <div id="top" className="min-h-screen bg-black text-white">
       {/* ===== HEADER ===== */}
@@ -88,6 +95,52 @@ function App() {
         </p>
       </section>
 
+      {/* ===== LOCATIE LEIDEN ===== */}
+      <section
+        id="locatie"
+        className="py-20 border-t border-neutral-800 bg-black text-white"
+      >
+        <div className="container mx-auto max-w-5xl px-6">
+          <h2 className="text-3xl font-semibold mb-6 text-center">
+            Locatie in Leiden
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <img
+              src="/locatie1.jpg"
+              alt="Locatie Leiden tafel setting"
+              className="rounded-2xl object-cover w-full h-64"
+            />
+            <img
+              src="/locatie2.jpg"
+              alt="Locatie Leiden overview"
+              className="rounded-2xl object-cover w-full h-64"
+            />
+            <img
+              src="/locatie3.jpg"
+              alt="Locatie Leiden diner"
+              className="rounded-2xl object-cover w-full h-64"
+            />
+          </div>
+
+          <div className="text-neutral-300 max-w-3xl mx-auto text-center space-y-3">
+            <p>
+              Beschikbare locatie in <strong>Leiden</strong> voor groepen van{" "}
+              <strong>15–40 personen</strong>.
+            </p>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <a
+              href="#contact"
+              className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-black transition"
+            >
+              Informeer naar de mogelijkheden
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ===== CONTACT / BOEKING ===== */}
       <section
         id="contact"
@@ -122,7 +175,15 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <strong>Instagram:</strong> @mytable
+                  <strong>Instagram:</strong>{" "}
+                  <a
+                    href="https://www.instagram.com/mytable"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline hover:no-underline"
+                  >
+                    @mytable
+                  </a>
                 </li>
               </ul>
             </div>
@@ -139,6 +200,7 @@ function App() {
                   required
                   name="naam"
                   className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
+                  autoComplete="name"
                 />
               </label>
 
@@ -149,6 +211,7 @@ function App() {
                   type="email"
                   name="_replyto"
                   className="mt-1 w-full rounded-xl border border-neutral-700 bg-black text-white px-3 py-2"
+                  autoComplete="email"
                 />
               </label>
 
@@ -210,17 +273,13 @@ function App() {
             <div className="text-sm text-neutral-300">
               Gemiddeld{" "}
               <span className="font-semibold">
-                {reviews.length > 0 ? "4.7/5" : "-"}
+                {averageRating ? `${averageRating}/5` : "-"}
               </span>{" "}
               op basis van{" "}
-              <span className="font-semibold">
-                {reviews.length}
-              </span>{" "}
-              reviews
+              <span className="font-semibold">{reviews.length}</span> reviews
             </div>
           </div>
 
-          {/* Alleen tonen als er reviews zijn */}
           {reviews.length > 0 ? (
             <div className="grid md:grid-cols-3 gap-6">
               {reviews.map((review, idx) => (
