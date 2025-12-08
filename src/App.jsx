@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
 
-// Lege array (jij kunt later handmatig reviews toevoegen)
-const reviews = [];
+const reviews = [
+  {
+    name: "Ivo",
+    rating: 5,
+    text: "We wilden eens wat anders dan uit eten. We gaven onze wensen door, lieten ons verder verrassen en kregen een heerlijke curry voorgeschoteld, vol van smaak, klaargemaakt in onze eigen keuken. En naast hun kookkunsten zijn het ook gewoon erg leuke gasten. Echt een leuke ervaring, dank jullie wel!",
+  },
+];
 
 function renderStars(rating) {
   return (
@@ -12,6 +17,7 @@ function renderStars(rating) {
     </span>
   );
 }
+
 
 function App() {
   return (
